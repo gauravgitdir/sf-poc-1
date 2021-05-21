@@ -297,8 +297,7 @@ stage('Run Tests In Package Prod Org') {
   // send to email
 						timeout(time: 10, unit: "MINUTES") {
 						mail bcc: '', body: 'Please go to the link to approve or Reject the deployment-'+final_url,  cc: 'saurabh.aglave@yash.com', from: '', replyTo: '', subject: 'Prod deployment approval request', to: 'gs14701@gmail.com'
-						input "Deploy to prod?"
-		     				 rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:mdapi:deploy -d MDAPI_MetaData/. -u ${HUB_ORG_DH_prod}"
+					          rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:mdapi:deploy -d MDAPI_MetaData/. -u ${HUB_ORG_DH_prod}"
 				                  rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:mdapi:deploy:report  -u ${HUB_ORG_DH_prod} --json"  //rmsg
 				          rmsg = rmsg.substring(rmsg.indexOf('{'))                                  
                                     def object = readJSON text: rmsg                                   

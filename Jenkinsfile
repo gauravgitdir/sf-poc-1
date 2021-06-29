@@ -128,7 +128,7 @@ import groovy.json.*
 
         if (env.BRANCH_NAME == "Dev") {
 
-          withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'jwt_key_file'), string(credentialsId: 'CONNECTED_APP_dev', variable: 'CONNECTED_APP_dev'), string(credentialsId: 'HUB_ORG_DH_dev', variable: 'HUB_ORG_DH_dev'), string(credentialsId: 'SFDC_HOST_DH', variable: 'SFDC_HOST_DH')]) {
+          withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'jwt_key_file'), string(credentialsId: 'CONNECTED_APP_dev', variable: 'CONNECTED_APP_dev'), string(credentialsId: 'HUB_ORG_DH_dev', variable: 'HUB_ORG_DH_dev'), string(credentialsId: 'SFDC_HOST', variable: 'SFDC_HOST')]) {
             stage('Dev:Authorization and Deployment') {
               if (isUnix()) {
                 rc = sh returnStatus: true, script: "${toolbelt} force:auth:jwt:grant --clientid ${CONNECTED_APP_dev} --username ${HUB_ORG_DH_dev} --jwtkeyfile ${jwt_key_file} --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"

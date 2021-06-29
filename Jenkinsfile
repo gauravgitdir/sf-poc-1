@@ -26,7 +26,7 @@ import groovy.json.*
     println 'KEY IS'
     println JWT_KEY_CRED_ID
     println HUB_ORG_prod
-    println SFDC_HOST
+    println SFDC_HOST_DH
     println CONNECTED_APP_CONSUMER_KEY_prod
     def toolbelt = tool 'toolbelt'
     def BRANCH_NAME = env.BRANCH_NAME
